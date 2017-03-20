@@ -1,0 +1,33 @@
+<?php   
+ $contacts = file_get_contents('phonebook.txt');
+
+ $contacts = json_decode($contacts, true);
+ //echo '<pre>';
+ //var_dump($contacts);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>телефонная книга</title>
+	<meta charset="utf-8">
+</head>
+<body>
+ <table border="1">
+ <tr>
+ 	<th>Имя</th>
+ 	<th>Фамилия</th>
+ 	<th>Адрес</th>
+ 	<th>Телефон</th>
+ </tr>
+ <?php foreach ($contacts as  $contact) :?>
+ 	<tr>
+ 		<td><?=$contact["firstName"]?></td>
+ 		<td><?=$contact["lastName"]?></td>
+ 		<td><?=$contact["address"]?></td>
+ 		<td><?=$contact["phoneNumber"]?></td>
+ 	</tr>
+ <?php endforeach ?>
+
+ </table>
+</body>
+</html>
